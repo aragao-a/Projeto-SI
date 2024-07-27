@@ -8,12 +8,14 @@ s = cn.connect(2037)
 
 def main():
     # lendo o arquivo de resultado.txt
-    data = np.loadtxt(ROOT_PATH / 'resultado.txt')
+    data = np.loadtxt(ROOT_PATH / 'teste_claudino.txt')
     
     # Parâmetros Q-learning
-    alpha = 0.8 # taxa de aprendizado
-    gamma = 0.9 # fator de desconto
-    epsilon = 0.1 # chance de explorar
+    alpha = 0  # taxa de aprendizado
+    gamma = 0.9  # fator de desconto
+    epsilon = 0.1  # chance de explorar
+    epsilon_decay = 0.995  # taxa de decaimento para epsilon
+    min_epsilon = 0.01  # valor mínimo de epsilon
 
     # Variáveis de controle
     # Direções do jogo: Norte = 0, Sul = 1, Leste = 2, Oeste = 3
@@ -51,6 +53,9 @@ def main():
         )
 
         # Salvar a Q-table atualizada de volta no arquivo
-        np.savetxt(ROOT_PATH /'resultado.txt', data)
+        np.savetxt(ROOT_PATH /'teste_claudino.txt', data)
+
+        # Reduzir gradualmente epsilon
+        epsilon = max(min_epsilon, epsilon * epsilon_decay)
 
 main()
