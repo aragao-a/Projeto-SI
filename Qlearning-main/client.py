@@ -13,7 +13,7 @@ def main():
     # Parâmetros Q-learning
     alpha = 0.8 # taxa de aprendizado
     gamma = 0.9 # fator de desconto
-    epsilon = 0 # chance de explorar
+    epsilon = 0.1 # chance de explorar
 
     # Variáveis de controle
     # Direções do jogo: Norte = 0, Sul = 1, Leste = 2, Oeste = 3
