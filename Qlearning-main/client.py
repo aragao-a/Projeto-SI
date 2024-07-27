@@ -6,14 +6,26 @@ ROOT_PATH = Path(__file__).parent
 
 s = cn.connect(2037)
 
+# Função para detectar o bug do comando "jump"
+def detect_jump_bug(estado):
+    # Implementar lógica para detectar se "jump" resultou em pular para a esquerda
+    # Exemplo: verificar se o novo estado está em uma posição que indica o bug
+    # Isso precisa ser ajustado com base na lógica específica do jogo
+    bug_detectado = False
+    # Lógica fictícia para detecção do bug
+    if estado.endswith('01'):  # Exemplo: se o estado termina em '01', consideramos um bug
+        bug_detectado = True
+    return bug_detectado
+
 def main():
     # lendo o arquivo de resultado.txt
     data = np.loadtxt(ROOT_PATH / 'teste_claudino.txt')
     
     # Parâmetros Q-learning
     alpha = 0  # taxa de aprendizado
+    original_alpha = alpha  # para restaurar após o bug
     gamma = 0.9  # fator de desconto
-    epsilon = 0.1  # chance de explorar
+    epsilon = 0  # chance de explorar
     epsilon_decay = 0.995  # taxa de decaimento para epsilon
     min_epsilon = 0.01  # valor mínimo de epsilon
 
@@ -55,7 +67,6 @@ def main():
         # Salvar a Q-table atualizada de volta no arquivo
         np.savetxt(ROOT_PATH /'teste_claudino.txt', data)
 
-        # Reduzir gradualmente epsilon
-        epsilon = max(min_epsilon, epsilon * epsilon_decay)
+        
 
 main()
