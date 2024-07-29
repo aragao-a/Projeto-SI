@@ -1,3 +1,6 @@
+
+# Grupo - Áriston Aragão (aaa10), Claudino Neto (cesn2) e Marcos Gabriel (mgma)
+
 import connection as cn
 import numpy as np
 from pathlib import Path
