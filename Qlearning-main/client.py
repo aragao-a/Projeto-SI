@@ -14,16 +14,14 @@ data = np.loadtxt(ROOT_PATH / 'Q-TABLE-DEF.txt')
 
 # Parâmetros Q-learning
 alpha = 0 # taxa de aprendizado (treinamos em 0,7)
-original_alpha = alpha  # para restaurar após o bug
 gamma = 0.95  # fator de desconto
 epsilon = 0 # chance de explorar (treinamos em 0.1)
 epsilon_decay = 0.995  # taxa de decaimento para epsilon
-min_epsilon = 0.01  # valor mínimo de epsilon
 
 actions = ['left', 'right', 'jump'] # Direções do jogo: Norte = 0, Sul = 1, Leste = 2, Oeste = 3
 
 # Obter o estado inicial
-estado, recompensa = cn.get_state_reward(s, "jump")
+estado, recompensa = cn.get_state_reward(s, "")
 
 plataforma = int(estado[2:7], 2) # pega do 2º em diante, pois é um binário
 sentido = int(estado[-2:], 2)  # pega os dois últimos índices para o sentido
