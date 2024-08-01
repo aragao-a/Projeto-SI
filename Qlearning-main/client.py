@@ -19,7 +19,7 @@ def detect_jump_bug(estado):
 
 def main():
     # lendo o arquivo de resultado.txt
-    data = np.loadtxt(ROOT_PATH / 'teste_claudino.txt')
+    data = np.loadtxt(ROOT_PATH / 'teste-ariston.txt')
     
     # Parâmetros Q-learning
     alpha = 0  # taxa de aprendizado
@@ -65,7 +65,7 @@ def main():
         )
 
         # Salvar a Q-table atualizada de volta no arquivo
-        np.savetxt(ROOT_PATH /'teste_claudino.txt', data)
+        np.savetxt(ROOT_PATH /'teste-ariston.txt', data)
 
         
 
